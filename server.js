@@ -30,14 +30,21 @@ app.post('/cursos/', (req, res) => {
 })
 
 
+app.put('/cursos/posicao', (req, res) => {
+    const novoCurso = req.body.novo_curso
+    const posicaoCursoDelete = req.params.posicao
+    listaCursos[posicaoCursoDelete] = novoCurso
+
+    Response.json({
+
+        "Sucesso": true,
+        "mensagem": "Atualizado",
+        "curso": "novoCurso"
+    })
 
 
 
-app.put('/cursos/:id', (req, res) => {
-    res.send('Hello World!')
 })
-
-
 
 
 app.delete('/cursos/:posicao', (req, res) => {
