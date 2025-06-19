@@ -38,9 +38,17 @@ app.put('/cursos/:id', (req, res) => {
 })
 
 
-//_____________________________________________________
-app.delete('/cursos/:id', (req, res) => {
-    res.send('Hello World!')
+
+
+app.delete('/cursos/:posicao', (req, res) => {
+    const posicaoCurso = req.params.posicao
+    const nomeCurso = listaCursos[posicaoCurso]
+    listaCursos.splice(posicaoCurso, 1)
+
+    res.json({
+        mensagem: "Curso removido com sucesso",
+        nome: nomeCurso
+    })
 })
 
 
